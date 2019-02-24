@@ -1,15 +1,18 @@
 import UIKit
+import SwiftSVG
 
 class CountryCell: UITableViewCell {
 
-    @IBOutlet weak var flagImageView: UIImageView!
+   
+    @IBOutlet weak var flagView: UIView!
+    
 
     static var identifier: String {
         return "CountryCell"
     }
     
     static var height: CGFloat {
-        return 161.0
+        return 282.0
     }
     
     @IBOutlet weak var countryNameLabel: UILabel!
@@ -23,7 +26,15 @@ class CountryCell: UITableViewCell {
     }
     
     func configure(with viewModel: CountryCellViewModel) {
-        self.flagImageView.image = UIImage(named:viewModel.flag)
+
+        let svgURL = URL(string: viewModel.flag)!
+        let svgView = UIView(SVGURL: svgURL) { (svgLayer) in
+
+            svgLayer.resizeToFit(self.flagView.bounds)
+        }
+       
+        self.flagView.addSubview(svgView)
+        
         self.countryNameLabel.text = viewModel.name
         self.capitalLabel.text = viewModel.capital
         self.populationLabel.text = "\(viewModel.population)"

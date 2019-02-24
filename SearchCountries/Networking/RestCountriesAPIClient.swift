@@ -40,12 +40,8 @@ class RestCountriesAPIClient {
                     if httpResponse.statusCode == 200 {
                         do {
                             let country = try self.decoder.decode(Array<Country>.self, from: data)
-                            print("country: \(country)")
-//                            print(self.decoder.userInfo)
+                            print("country: \(country.count)")
                             completion(country, nil)
-//                            let json = try JSONSerialization.jsonObject(with: data, options: []) as? Country
-//                            print(json)
-//                            completion(json, nil)
                         } catch let error {
                             print(error)
                             completion(nil, error)

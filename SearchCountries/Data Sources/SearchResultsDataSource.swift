@@ -7,6 +7,11 @@ class SearchResultsDataSource: NSObject, UITableViewDataSource {
     
     func update(with countries: [Country]) {
         dataCountry = countries
+        print("data country:\(dataCountry)")
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
     // MARK: - Data Source
@@ -16,9 +21,12 @@ class SearchResultsDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResultsCell", for:indexPath)
-        let country = dataCountry[indexPath.row]
-        print(country)
-        cell.textLabel?.text = country.name
+//        for cell in tableView.visibleCells {
+//        if dataCountry[indexPath.row].name.count <= 10 {
+            let country = dataCountry[indexPath.row]
+//            print(country.name.count)
+            cell.textLabel?.text = country.name
+//        }
         
         return cell
     }

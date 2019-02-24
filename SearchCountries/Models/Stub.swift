@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 struct Stub {
     static var country: Country {

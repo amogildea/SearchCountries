@@ -46,12 +46,13 @@ extension SearchResultsController: UISearchResultsUpdating {
         client.getCountry(with: searchController.searchBar.text!) { [unowned self] countries, error in
             if let countries = countries {
                  self.dataSource.update(with: countries)
+                self.tableView.reloadData()
                 print("countries: \(countries)")
             }
            
         }
 //        dataSource.update(with: [Stub.country])
-        tableView.reloadData()
+       
     }
 }
 
