@@ -7,7 +7,7 @@ struct CountryCellViewModel {
     let capital: String
     let population: Int
     let subregion: String
-//    let language: Language
+    let languages: [Languages]
 }
 
 extension CountryCellViewModel {
@@ -17,6 +17,6 @@ extension CountryCellViewModel {
         self.capital = country.capital
         self.population = country.population
         self.subregion = country.subregion
-//        self.language = country.language
+        self.languages = country.languages
     }
 }

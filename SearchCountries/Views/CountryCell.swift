@@ -35,10 +35,10 @@ class CountryCell: UITableViewCell {
        
         self.flagView.addSubview(svgView)
         
-        self.countryNameLabel.text = viewModel.name
-        self.capitalLabel.text = viewModel.capital
-        self.populationLabel.text = "\(viewModel.population)"
-        self.subregion.text = viewModel.subregion
-//        self.languageLabel.text = viewModel.language.name
+        self.countryNameLabel.text = "Country: \(viewModel.name)"
+        self.capitalLabel.text = "Capital: \(viewModel.capital)"
+        self.populationLabel.text = "Population: \(viewModel.population)"
+        self.subregion.text = "Subregion: \(viewModel.subregion)"
+        self.languageLabel.text = "Language: \(viewModel.languages[0].name, viewModel.languages[0].nativeName)"
     }
 }

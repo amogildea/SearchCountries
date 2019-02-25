@@ -1,6 +1,6 @@
 import Foundation
 
-class Language: Codable {
+class Languages: Codable {
     let name: String
     let nativeName: String
     
